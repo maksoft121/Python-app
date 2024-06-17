@@ -6,7 +6,7 @@ pipeline {
     stages { 
     stage('git checkout')
         steps {
-            git branch: 'main', url: 'https://github.com/maksoft121/Python-app.git'
+            git 'https://github.com/maksoft121/Python-app.git'
         }
         stage('Build docker image') {
             steps {  
