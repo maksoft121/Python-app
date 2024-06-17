@@ -8,6 +8,7 @@ pipeline {
         steps {
             git 'https://github.com/maksoft121/Python-app.git'
         }
+    }
         stage('Build docker image') {
             steps {  
                 sh ' docker build -t maksoft121/pythonapp:$BUILD_NUMBER .'
