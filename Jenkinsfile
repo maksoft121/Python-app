@@ -4,10 +4,13 @@ pipeline {
     DOCKERHUB_CREDENTIALS = credentials('s3cloudhub-dockerhub')
     }
     stages { 
-
+    stage('git checkout')
+        steps {
+            git branch: 'main', url: 'https://github.com/maksoft121/Python-app.git'
+        }
         stage('Build docker image') {
             steps {  
-                sh ' docker build -t vatsraj/pythonapp:$BUILD_NUMBER .'
+                sh ' docker build -t maksoft121/pythonapp:$BUILD_NUMBER .'
             }
         }
         stage('login to dockerhub') {
